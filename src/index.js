@@ -1,15 +1,10 @@
-import React from 'react';
-import { render } from 'react-dom'
+import React from "react";
+import { createRoot } from "react-dom/client";
 
-import App from './components/App';
+import App from "./components/App";
 
-const title = 'Webpack React Setup';
+const title = "Webpack React Setup";
 console.log(title);
 
-render(
-    <div>
-        <h1>Hello React & Webpack</h1>
-        <App />
-    </div>,
-    document.getElementById('app')
-);
+const root = createRoot(document.getElementById("root"));
+root.render(<App />);

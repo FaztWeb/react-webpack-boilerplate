@@ -1,34 +1,24 @@
-import React, { Component } from 'react'
+import { useState } from "react";
 
-class App extends Component {
+const App = () => {
+  const [task, setTask] = useState({
+    title: "My First component",
+    done: true,
+  });
 
-    state = {
-        task: {
-            title: 'My First component',
-            done: true
-        }
-    };
+  const handleClick = () =>
+    setTask({
+      ...task,
+      done: !task.done,
+    });
 
-    handleClick = () => {
-        const task = this.state.task;
-        task.done = !task.done;
-        this.setState({
-            task
-        });
-    }
-
-    render() {
-        return (
-            <div>
-                <h3>{this.state.task.title}</h3>
-                <h3>{this.state.task.done.toString()}</h3>
-                <button onClick={this.handleClick}>
-                    Click
-                </button>
-            </div>
-        )
-    }
-
-}
+  return (
+    <div>
+      <h3>{task.title}</h3>
+      <h3>{task.done.toString()}</h3>
+      <button onClick={handleClick}>Click</button>
+    </div>
+  );
+};
 
 export default App;
